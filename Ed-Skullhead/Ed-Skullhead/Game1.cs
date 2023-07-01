@@ -11,18 +11,21 @@ namespace Ed_Skullhead
         private SpriteBatch _spriteBatch;
         private Texture2D idleSprite;
         private Texture2D runSprite;
-        private float scale = 4f;
-
         private Player player;
+        GraphicsDeviceManager graphics;
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
