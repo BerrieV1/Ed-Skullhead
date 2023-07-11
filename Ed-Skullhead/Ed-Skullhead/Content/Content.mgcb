@@ -85,6 +85,21 @@
 /processorParam:TextureFormat=Color
 /build:../../../../Skeleton/Sprite Sheets/Skeleton Walk.png;Skeleton Walk.png
 
+#begin cave-tileset.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:cave-tileset.png
+
+#begin level1.tmx
+/copy:level1.tmx
+
 #begin Skeleton Attack.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "5UwYMc8/YaxVjH+HqETklK+Ts6Yy14coi6B4p5Hfl6u22vOlIS2sAxj9QBXK8qSFZ05B7irbvYnQxw9ka4lBqA==",
+  "dgSpecHash": "/83KMETpm0m7djqL1DvcAxlrIMFv7wq0hrLL+jtmeRdYhbV6MUguFlOKR7MdmKo5F83f2ZSxwB8OvM3jn7Rozg==",
   "success": true,
   "projectFilePath": "C:\\Users\\bernd\\OneDrive - AP Hogeschool Antwerpen\\School 22-23 semester 2\\Game Dev\\Ed-Skullhead\\Ed-Skullhead\\Ed-Skullhead\\Ed_Skullhead.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bernd\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\bernd\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\bernd\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\bernd\\.nuget\\packages\\tiledsharp\\1.0.1\\tiledsharp.1.0.1.nupkg.sha512"
   ],
   "logs": []
 }
