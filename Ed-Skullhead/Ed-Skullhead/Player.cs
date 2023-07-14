@@ -1,24 +1,45 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Ed_Skullhead
 {
     public class Player : Entity
     {
         public Vector2 velocity;
-        public float speed = 5;
-        private float scale = 2f;
+        public Rectangle fallRect;
+        public Rectangle jumpRect;
+
+        private float speed;
+        private float scale;
+        private float fallSpeed;
+        private float jumpSpeed;
+
+        public bool isFalling = true;
+        public bool isJumping;
+        public bool isRunning = false;
+        public float startY;
+
         public Animation[] animation;
         public CurrentAnimation currentAnimation;
         public SpriteEffects spriteEffect;
-        public Player(Texture2D idleSprite, Texture2D runSprite)
+
+        public Player(Texture2D idleSprite, Texture2D runSprite, float speed, float scale, float fallSpeed, float jumpSpeed)
         {
-            velocity = new Vector2();
+            velocity = new Vector2(40, 340);
             animation = new Animation[2];
+            position = new Vector2();
+
             animation[0] = new Animation(idleSprite, 24, 32);
             animation[1] = new Animation(runSprite, 22, 32);
+
+            this.speed = speed;
+            this.scale = scale;
+            this.fallSpeed = fallSpeed;
+            this.jumpSpeed = jumpSpeed;
+
+            hitbox = new Rectangle((int)position.X, (int)position.Y, 25, 32);
+            fallRect = new Rectangle((int)position.X, (int)position.Y + 25, 32, 5);
         }
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -34,23 +55,63 @@ namespace Ed_Skullhead
         }
         public override void Update()
         {
-            KeyboardState state = Keyboard.GetState();
+            if (isRunning)
+            {
+                currentAnimation = CurrentAnimation.Run;
+                isRunning = false;
+            }
+            else
+                currentAnimation = CurrentAnimation.Idle;
 
-            currentAnimation = CurrentAnimation.Idle;
+            Move(Keyboard.GetState());
+            if (isFalling)
+                velocity.Y += fallSpeed;
 
+            startY = position.Y;
+            Jump(Keyboard.GetState());
+
+            position = velocity;
+            hitbox.X = (int)position.X;
+            hitbox.Y = (int)position.Y;
+            fallRect.X = (int)position.X;
+            fallRect.Y = (int)velocity.Y + 32;
+        }
+        private void Move(KeyboardState state)
+        {
             if (state.IsKeyDown(Keys.Q))
             {
                 velocity.X -= speed;
-                currentAnimation = CurrentAnimation.Run;
+                isRunning = true;
                 spriteEffect = SpriteEffects.FlipHorizontally;
             }
-            else if(state.IsKeyDown(Keys.D))
+            else if (state.IsKeyDown(Keys.D))
             {
                 velocity.X += speed;
-                currentAnimation = CurrentAnimation.Run;
+                isRunning = true;
                 spriteEffect = SpriteEffects.None;
             }
-            position = velocity;
+        }
+        private void Jump(KeyboardState state)
+        {
+            if (isJumping)
+            {
+                velocity.Y += jumpSpeed;
+                jumpSpeed += 1;
+                if (velocity.Y >= startY)
+                {
+                    velocity.Y = startY;
+                    isJumping = false;
+                }
+            }
+            else
+            {
+                if (state.IsKeyDown(Keys.Space) && !isFalling)
+                {
+                    isJumping = true;
+                    isFalling = false;
+                    jumpSpeed = -10;
+                }
+            }
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Ed_Skullhead
         int rows = 0;
         int c = 0;
         float lastFrame = 0;
-        int frameWidth;
-        int frameHeight;
+        public int frameWidth;
+        public int frameHeight;
         public Animation(Texture2D spritesheet, int frameWidth, int frameHeight)
         {
             this.spritesheet = spritesheet;
