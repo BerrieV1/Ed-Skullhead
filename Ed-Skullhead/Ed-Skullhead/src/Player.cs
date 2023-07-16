@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
-namespace Ed_Skullhead
+namespace Ed_Skullhead.src
 {
     public class Player : Entity
     {
@@ -24,22 +25,21 @@ namespace Ed_Skullhead
         public CurrentAnimation currentAnimation;
         public SpriteEffects spriteEffect;
 
-        public Player(Texture2D idleSprite, Texture2D runSprite, float speed, float scale, float fallSpeed, float jumpSpeed)
+        public Player(Vector2 startPositon, List<Texture2D> sprites, float speed, float scale, float fallSpeed, float jumpSpeed)
         {
-            velocity = new Vector2(40, 340);
+            velocity = startPositon;
             animation = new Animation[2];
-            position = new Vector2();
 
-            animation[0] = new Animation(idleSprite, 24, 32);
-            animation[1] = new Animation(runSprite, 22, 32);
+            animation[0] = new Animation(sprites[0], 24, 32);
+            animation[1] = new Animation(sprites[1], 22, 32);
 
             this.speed = speed;
             this.scale = scale;
             this.fallSpeed = fallSpeed;
             this.jumpSpeed = jumpSpeed;
 
-            hitbox = new Rectangle((int)position.X, (int)position.Y, 25, 32);
-            fallRect = new Rectangle((int)position.X, (int)position.Y + 25, 32, 5);
+            hitbox = new Rectangle((int)velocity.X, (int)velocity.Y, 25, 32);
+            fallRect = new Rectangle((int)velocity.X, (int)velocity.Y + 25, 32, 5);
         }
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

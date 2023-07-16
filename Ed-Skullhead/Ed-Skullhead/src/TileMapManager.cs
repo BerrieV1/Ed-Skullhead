@@ -2,11 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using TiledSharp;
 
-namespace Ed_Skullhead
+namespace Ed_Skullhead.src
 {
     public class TileMapManager
     {
-        private SpriteBatch spriteBatch;
         Texture2D tileset;
         TmxMap map;
         int tileWidth;
@@ -36,8 +35,8 @@ namespace Ed_Skullhead
                     {
                         int tileFrame = gid - 1;
                         int column = tileFrame % tilesetTilesWide;
-                        int row = (int)System.Math.Floor((double)tileFrame / (double)tilesetTilesWide);
-                        float x = (j % map.Width) * map.TileWidth;
+                        int row = (int)System.Math.Floor(tileFrame / (double)tilesetTilesWide);
+                        float x = j % map.Width * map.TileWidth;
                         float y = (float)System.Math.Floor(j / (double)map.Width) * map.TileHeight;
                         Rectangle tilesetRec = new Rectangle(tileWidth * column, tileHeight * row, tileWidth, tileHeight);
                         spriteBatch.Draw(tileset, new Rectangle((int)x, (int)y, tileWidth, tileHeight), tilesetRec, Color.White);

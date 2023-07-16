@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Ed_Skullhead
+namespace Ed_Skullhead.src
 {
     public abstract class Entity
     {

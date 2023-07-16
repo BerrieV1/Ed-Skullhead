@@ -4,12 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/../../../../Skeleton/Sprite Sheets/Skeleton Attack.png</File>
-    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/../../../../Skeleton/Sprite Sheets/Skeleton Dead.png</File>
-    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/../../../../Skeleton/Sprite Sheets/Skeleton Hit.png</File>
-    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/../../../../Skeleton/Sprite Sheets/Skeleton Idle.png</File>
-    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/../../../../Skeleton/Sprite Sheets/Skeleton React.png</File>
-    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/../../../../Skeleton/Sprite Sheets/Skeleton Walk.png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/10 - Blankey_Floating (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/3 - Hermie_Crawling (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/8 - Roach_Running (32 x 32).png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/cave-tileset.png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Attack.png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Dead.png</File>
@@ -19,12 +16,9 @@
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Walk.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>Skeleton Attack.png</File>
-    <File>Skeleton Dead.png</File>
-    <File>Skeleton Hit.png</File>
-    <File>Skeleton Idle.png</File>
-    <File>Skeleton React.png</File>
-    <File>Skeleton Walk.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

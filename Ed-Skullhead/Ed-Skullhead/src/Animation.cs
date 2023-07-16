@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Ed_Skullhead
+namespace Ed_Skullhead.src
 {
     public class Animation
     {
@@ -17,7 +17,7 @@ namespace Ed_Skullhead
             this.spritesheet = spritesheet;
             this.frameWidth = frameWidth;
             this.frameHeight = frameHeight;
-            frames = spritesheet.Width / (int)frameWidth;
+            frames = spritesheet.Width / frameWidth;
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position, GameTime gameTime, float scale, SpriteEffects spriteEffects, float time = 100)
         {
