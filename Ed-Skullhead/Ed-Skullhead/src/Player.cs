@@ -38,8 +38,9 @@ namespace Ed_Skullhead.src
             this.fallSpeed = fallSpeed;
             this.jumpSpeed = jumpSpeed;
 
-            hitbox = new Rectangle((int)velocity.X, (int)velocity.Y, 25, 32);
-            fallRect = new Rectangle((int)velocity.X, (int)velocity.Y + 25, 32, 5);
+            hitbox = new Rectangle((int)velocity.X, (int)velocity.Y, 24, 32);
+            fallRect = new Rectangle((int)velocity.X, (int)velocity.Y + 24, 32, 7);
+            jumpRect = new Rectangle((int)velocity.X, (int)velocity.Y, 32, 1);
         }
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -55,6 +56,7 @@ namespace Ed_Skullhead.src
         }
         public override void Update()
         {
+            position = velocity;
             if (isRunning)
             {
                 currentAnimation = CurrentAnimation.Run;
@@ -70,11 +72,12 @@ namespace Ed_Skullhead.src
             startY = position.Y;
             Jump(Keyboard.GetState());
 
-            position = velocity;
             hitbox.X = (int)position.X;
             hitbox.Y = (int)position.Y;
             fallRect.X = (int)position.X;
             fallRect.Y = (int)velocity.Y + 32;
+            jumpRect.X = (int)position.X;
+            jumpRect.Y = (int)velocity.Y;
         }
         private void Move(KeyboardState state)
         {

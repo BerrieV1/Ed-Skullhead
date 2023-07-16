@@ -20,7 +20,7 @@ namespace Ed_Skullhead.src
             this.path = path;
             enemyAnimation = new Animation(spritesheet, 32, 32);
             position = new Vector2(path.X, path.Y);
-            //hitbox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
+            hitbox = new Rectangle((int)position.X, (int)position.Y, 16, 16);
             this.speed = speed;
             this.scale = scale;
         }
@@ -30,6 +30,10 @@ namespace Ed_Skullhead.src
                 enemyAnimation.Draw(spriteBatch, position, gameTime, scale, SpriteEffects.None);
             else
                 enemyAnimation.Draw(spriteBatch, position, gameTime, scale, SpriteEffects.FlipHorizontally);
+        }
+        public bool HasHit(Rectangle playerRect)
+        {
+            return hitbox.Intersects(playerRect);
         }
         public override void Update()
         {

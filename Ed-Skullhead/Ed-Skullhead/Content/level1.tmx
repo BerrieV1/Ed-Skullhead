@@ -116,14 +116,14 @@
   <object id="8" x="255.875" y="413.875" width="192.625" height="33.375"/>
   <object id="9" x="112.25" y="381.553" width="143.375" height="66.2386"/>
   <object id="10" x="0.125" y="414.167" width="112.125" height="33.375"/>
-  <object id="21" x="-38.875" y="1.167" width="36.125" height="479.375"/>
-  <object id="22" x="640.125" y="0.167" width="38.125" height="479.375"/>
+  <object id="21" x="-36.375" y="1.167" width="36.125" height="479.375"/>
+  <object id="22" x="640.375" y="-0.333" width="38.125" height="479.375"/>
   <object id="23" x="1.125" y="-37.833" width="639.125" height="37.375"/>
   <object id="24" x="-0.875" y="482.167" width="639.125" height="37.375"/>
-  <object id="11" x="0.583333" y="286.795" width="208.25" height="32.7045"/>
+  <object id="11" x="-0.00757609" y="286.795" width="208.841" height="32.7045"/>
   <object id="12" x="208.75" y="254.068" width="126.25" height="65.1818"/>
   <object id="13" x="335.25" y="286.25" width="128.5" height="33.5"/>
-  <object id="14" x="0.5" y="206.068" width="175.25" height="33.9318"/>
+  <object id="14" x="0" y="206.735" width="175.75" height="33.2651"/>
   <object id="15" name="End" x="576.875" y="67.75" width="31.375" height="27.75"/>
   <object id="16" name="Start" x="32.875" y="385.75" width="30.25" height="30"/>
  </objectgroup>
