@@ -64,6 +64,9 @@
 #begin level1.tmx
 /copy:level1.tmx
 
+#begin level2.tmx
+/copy:level2.tmx
+
 #begin Skeleton Attack.png
 /importer:TextureImporter
 /processor:TextureProcessor

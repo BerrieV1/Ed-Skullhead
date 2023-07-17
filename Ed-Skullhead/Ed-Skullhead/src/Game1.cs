@@ -30,9 +30,13 @@ namespace Ed_Skullhead.src
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
         }
-        private void LoadLevel1()
+        public void LoadLevel1()
         {
             screenManager.LoadScreen(new Level1(this), new FadeTransition(GraphicsDevice, Color.Black));
+        }
+        public void LoadLevel2()
+        {
+            screenManager.LoadScreen(new Level2(this), new FadeTransition(GraphicsDevice, Color.Black));
         }
     }
 }

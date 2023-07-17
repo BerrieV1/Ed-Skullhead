@@ -7,7 +7,7 @@ using TiledSharp;
 
 namespace Ed_Skullhead.src
 {
-    public class Level1 : GameScreen
+    public class Level2 : GameScreen
     {
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -21,7 +21,7 @@ namespace Ed_Skullhead.src
         public Rectangle endRect;
         public bool isGameOver = false;
         private new Game1 Game => (Game1)base.Game;
-        public Level1(Game1 game): base(game)
+        public Level2(Game1 game) : base(game)
         {
 
         }
@@ -40,8 +40,8 @@ namespace Ed_Skullhead.src
             {
                 enemyPath.Add(new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height));
             }
-            CreateEnemy(Content.Load<Texture2D>("10 - Blankey_Floating (32 x 32)"), enemyPath[0], 2f, 1.2f);
-            CreateEnemy(Content.Load<Texture2D>("3 - Hermie_Crawling (32 x 32)"), enemyPath[1], 1f, 1.2f);
+            CreateEnemy(Content.Load<Texture2D>("3 - Hermie_Crawling (32 x 32)"), enemyPath[0], 1f, 1.2f);
+            CreateEnemy(Content.Load<Texture2D>("10 - Blankey_Floating (32 x 32)"), enemyPath[1], 2f, 1.2f);
             CreateEnemy(Content.Load<Texture2D>("8 - Roach_Running (32 x 32)"), enemyPath[2], 3f, 1.2f);
         }
         public Enemy CreateEnemy(Texture2D spritesheet, Rectangle path, float speed, float scale)
@@ -52,7 +52,7 @@ namespace Ed_Skullhead.src
         protected virtual Player CreatePlayer()
         {
             List<Texture2D> sprites = new List<Texture2D>() { Content.Load<Texture2D>("Skeleton Idle"), Content.Load<Texture2D>("Skeleton Walk") };
-            Vector2 startPosition = new Vector2(startRect.X + 9, startRect.Y - 12);
+            Vector2 startPosition = new Vector2(577, 0);
             float playerSpeed = 2.5f;
             float playerScale = 1.2f;
             float playerFallSpeed = 3f;
@@ -61,7 +61,7 @@ namespace Ed_Skullhead.src
         }
         protected virtual void LoadTileMap()
         {
-            map = new TmxMap("Content/level1.tmx");
+            map = new TmxMap("Content/level2.tmx");
             Texture2D tileset = Content.Load<Texture2D>(map.Tilesets[0].Name.ToString());
             int tileWidth = map.Tilesets[0].TileWidth;
             int tileHeight = map.Tilesets[0].TileHeight;
@@ -95,11 +95,6 @@ namespace Ed_Skullhead.src
             Vector2 position = player.position;
             player.Update();
             HandleCollisions(position);
-            if (endRect.Intersects(player.hitbox))
-            {
-                var game1 = (Game1)Game;
-                game1.LoadLevel2();
-            }
         }
         private void HandleCollisions(Vector2 position)
         {
