@@ -1,4 +1,7 @@
-﻿using Ed_Skullhead.Entities;
+﻿using Apos.Gui;
+using Ed_Skullhead.Entities;
+using Ed_Skullhead.Sound;
+using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -10,6 +13,7 @@ namespace Ed_Skullhead.src
 {
     public class LevelBase : GameScreen
     {
+        public int health = 3;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
@@ -36,6 +40,10 @@ namespace Ed_Skullhead.src
         public Rectangle endRect;
         #endregion
 
+        #region Coin
+        public List<Coin> coins = new List<Coin>();
+        #endregion
+
         public bool isGameOver = false;
         private new Game1 Game => (Game1)base.Game;
         public LevelBase(Game1 game) : base(game)
@@ -52,6 +60,15 @@ namespace Ed_Skullhead.src
             LoadTileMap();
             LoadCollisions();
             CreateEnemyPaths();
+            CreateCoins();
+        }
+        protected virtual void CreateCoins()
+        {
+            var coinTexture = Content.Load<Texture2D>("coin");
+            foreach (var objects in map.ObjectGroups["Coins"].Objects)
+            {
+                coins.Add(new Coin(coinTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
+            }
         }
         protected virtual void CreateEnemyPaths()
         {
@@ -61,10 +78,10 @@ namespace Ed_Skullhead.src
                 enemyPath.Add(new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height));
             }
         }
-        public Enemy CreateEnemy(Texture2D spritesheet, Rectangle path, float speed, float scale)
+        public Enemy CreateEnemy(Texture2D enemyTexture, Rectangle path, float speed, float scale)
         {
-            enemies.Add(new Enemy(spritesheet, path, speed, scale));
-            return new Enemy(spritesheet, path, speed, scale);
+            enemies.Add(new Enemy(enemyTexture, path, speed, scale));
+            return new Enemy(enemyTexture, path, speed, scale);
         }
         public virtual Player CreatePlayer(Vector2 startPosition, List<Texture2D> sprites, float playerSpeed, float playerScale, float playerFallSpeed, float playerJumpSpeed)
         {
@@ -95,6 +112,8 @@ namespace Ed_Skullhead.src
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Game.Exit();
+
+            #region Enemies
             foreach (var enemy in enemies)
             {
                 enemy.Update();
@@ -102,9 +121,29 @@ namespace Ed_Skullhead.src
                 if (isGameOver)
                     Game.Exit();
             }
+            #endregion
+
+            #region Coins
+            foreach (var coin in coins.ToArray())
+            {
+                if (coin.hitbox.Intersects(player.hitbox))
+                {
+                    SoundManager.PlaySound("collect");
+                    Game.points++;
+                    coins.Remove(coin);
+                    break;
+                }
+            }
+            #endregion
+
+            #region Player
             Vector2 position = player.position;
             player.Update();
+            #endregion
+
+            #region Collisions
             HandleCollisions(position);
+            #endregion
         }
         private void HandleCollisions(Vector2 position)
         {
@@ -147,12 +186,29 @@ namespace Ed_Skullhead.src
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+
+            #region Map
             tileMapManager.Draw(spriteBatch);
+            #endregion
+
+            #region Enemies
             foreach (var enemy in enemies)
             {
                 enemy.Draw(spriteBatch, gameTime);
             }
+            #endregion
+
+            #region Coins
+            foreach (var coin in coins)
+            {
+                coin.Draw(spriteBatch, gameTime);
+            }
+            #endregion
+
+            #region Player
             player.Draw(spriteBatch, gameTime);
+            #endregion
+
             spriteBatch.End();
         }
     }

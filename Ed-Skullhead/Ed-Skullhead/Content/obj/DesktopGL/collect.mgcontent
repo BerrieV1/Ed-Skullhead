@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/collect.wav</SourceFile>
+  <SourceTime>2021-02-22T00:47:31.9162085+01:00</SourceTime>
+  <DestFile>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/bin/DesktopGL/collect.xnb</DestFile>
+  <DestTime>2023-07-18T22:29:21.2318845+02:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2022-07-26T13:44:56+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
