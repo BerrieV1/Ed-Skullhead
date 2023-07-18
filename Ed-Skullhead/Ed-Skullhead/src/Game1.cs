@@ -2,13 +2,14 @@
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.Screens.Transitions;
+using Ed_Skullhead.Sound;
 
 namespace Ed_Skullhead.src
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager graphics;
-        private SpriteBatch _spriteBatch;
+        private SpriteBatch spriteBatch;
         private ScreenManager screenManager;
         public Game1()
         {
@@ -25,10 +26,12 @@ namespace Ed_Skullhead.src
             graphics.ApplyChanges();
             base.Initialize();
             LoadLevel1();
+            SoundManager.Initialize(Content);
+            SoundManager.PlaySound("background", true);
         }
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
         }
         public void LoadLevel1()
         {

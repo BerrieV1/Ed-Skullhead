@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Ed_Skullhead.Entities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Screens;
@@ -7,21 +8,37 @@ using TiledSharp;
 
 namespace Ed_Skullhead.src
 {
-    public class Level1 : GameScreen
+    public class LevelBase : GameScreen
     {
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+
+        #region Player
         public Player player;
+        public List<Texture2D> sprites = new List<Texture2D>();
+        public Vector2 startPosition = new Vector2();
+        public float playerSpeed = 2.5f;
+        public float playerScale = 1.2f;
+        public float playerFallSpeed = 3f;
+        public float playerJumpSpeed = 1f;
+        #endregion
+
+        #region Map
         public TileMapManager tileMapManager;
         public List<Rectangle> collisions;
         public TmxMap map;
+        #endregion
+
+        #region Enemy
         public List<Enemy> enemies = new List<Enemy>();
         public List<Rectangle> enemyPath;
         public Rectangle startRect;
         public Rectangle endRect;
+        #endregion
+
         public bool isGameOver = false;
         private new Game1 Game => (Game1)base.Game;
-        public Level1(Game1 game): base(game)
+        public LevelBase(Game1 game) : base(game)
         {
 
         }
@@ -34,34 +51,27 @@ namespace Ed_Skullhead.src
             spriteBatch = new SpriteBatch(GraphicsDevice);
             LoadTileMap();
             LoadCollisions();
-            player = CreatePlayer();
+            CreateEnemyPaths();
+        }
+        protected virtual void CreateEnemyPaths()
+        {
             enemyPath = new List<Rectangle>();
             foreach (var objects in map.ObjectGroups["EnemyPath"].Objects)
             {
                 enemyPath.Add(new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height));
             }
-            CreateEnemy(Content.Load<Texture2D>("10 - Blankey_Floating (32 x 32)"), enemyPath[0], 2f, 1.2f);
-            CreateEnemy(Content.Load<Texture2D>("3 - Hermie_Crawling (32 x 32)"), enemyPath[1], 1f, 1.2f);
-            CreateEnemy(Content.Load<Texture2D>("8 - Roach_Running (32 x 32)"), enemyPath[2], 3f, 1.2f);
         }
         public Enemy CreateEnemy(Texture2D spritesheet, Rectangle path, float speed, float scale)
         {
             enemies.Add(new Enemy(spritesheet, path, speed, scale));
             return new Enemy(spritesheet, path, speed, scale);
         }
-        protected virtual Player CreatePlayer()
+        public virtual Player CreatePlayer(Vector2 startPosition, List<Texture2D> sprites, float playerSpeed, float playerScale, float playerFallSpeed, float playerJumpSpeed)
         {
-            List<Texture2D> sprites = new List<Texture2D>() { Content.Load<Texture2D>("Skeleton Idle"), Content.Load<Texture2D>("Skeleton Walk") };
-            Vector2 startPosition = new Vector2(startRect.X + 9, startRect.Y - 12);
-            float playerSpeed = 2.5f;
-            float playerScale = 1.2f;
-            float playerFallSpeed = 3f;
-            float playerJumpSpeed = 1f;
             return new Player(startPosition, sprites, playerSpeed, playerScale, playerFallSpeed, playerJumpSpeed);
         }
-        protected virtual void LoadTileMap()
+        public virtual void LoadTileMap()
         {
-            map = new TmxMap("Content/level1.tmx");
             Texture2D tileset = Content.Load<Texture2D>(map.Tilesets[0].Name.ToString());
             int tileWidth = map.Tilesets[0].TileWidth;
             int tileHeight = map.Tilesets[0].TileHeight;
@@ -95,11 +105,6 @@ namespace Ed_Skullhead.src
             Vector2 position = player.position;
             player.Update();
             HandleCollisions(position);
-            if (endRect.Intersects(player.hitbox))
-            {
-                var game1 = (Game1)Game;
-                game1.LoadLevel2();
-            }
         }
         private void HandleCollisions(Vector2 position)
         {

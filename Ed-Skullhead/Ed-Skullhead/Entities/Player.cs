@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Ed_Skullhead.Sound;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -110,6 +111,7 @@ namespace Ed_Skullhead.src
             {
                 if (state.IsKeyDown(Keys.Space) && !isFalling)
                 {
+                    SoundManager.PlaySound("jump");
                     isJumping = true;
                     isFalling = false;
                     jumpSpeed = -10;

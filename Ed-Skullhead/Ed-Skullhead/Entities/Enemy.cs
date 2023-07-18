@@ -1,12 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Ed_Skullhead.src;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Ed_Skullhead.src
+namespace Ed_Skullhead.Entities
 {
     public class Enemy : Entity
     {

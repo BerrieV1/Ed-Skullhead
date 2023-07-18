@@ -5,9 +5,15 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/10 - Blankey_Floating (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/2 - Martian_Red_Running (32 x 32).png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/3 - Hermie_Crawling (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/5 - Robot_Walky_Movement (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/6 - Jumpy_Lumpy_Leaping_&amp;_Falling (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/7 - Orchid_Owl_Flying (32 x 32).png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/8 - Roach_Running (32 x 32).png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/background.wav</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/cave-tileset.png</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/jump.wav</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Attack.png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Dead.png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Hit.png</File>
@@ -16,6 +22,12 @@
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/Skeleton Walk.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

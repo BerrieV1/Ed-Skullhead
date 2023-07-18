@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:10 - Blankey_Floating (32 x 32).png
 
+#begin 2 - Martian_Red_Running (32 x 32).png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:2 - Martian_Red_Running (32 x 32).png
+
 #begin 3 - Hermie_Crawling (32 x 32).png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,6 +48,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:3 - Hermie_Crawling (32 x 32).png
+
+#begin 5 - Robot_Walky_Movement (32 x 32).png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:5 - Robot_Walky_Movement (32 x 32).png
+
+#begin 6 - Jumpy_Lumpy_Leaping_&_Falling (32 x 32).png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:6 - Jumpy_Lumpy_Leaping_&_Falling (32 x 32).png
+
+#begin 7 - Orchid_Owl_Flying (32 x 32).png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:7 - Orchid_Owl_Flying (32 x 32).png
 
 #begin 8 - Roach_Running (32 x 32).png
 /importer:TextureImporter
@@ -49,6 +97,12 @@
 /processorParam:TextureFormat=Color
 /build:8 - Roach_Running (32 x 32).png
 
+#begin background.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:background.wav
+
 #begin cave-tileset.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -60,6 +114,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:cave-tileset.png
+
+#begin jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:jump.wav
 
 #begin level1.tmx
 /copy:level1.tmx

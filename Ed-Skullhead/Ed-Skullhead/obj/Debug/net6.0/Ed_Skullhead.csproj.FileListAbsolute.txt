@@ -40,3 +40,9 @@ C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game D
 C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\MonoGame.Extended.dll
 C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\level2.tmx
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\2 - Martian_Red_Running (32 x 32).xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\5 - Robot_Walky_Movement (32 x 32).xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\6 - Jumpy_Lumpy_Leaping_&_Falling (32 x 32).xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\7 - Orchid_Owl_Flying (32 x 32).xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\background.xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\jump.xnb

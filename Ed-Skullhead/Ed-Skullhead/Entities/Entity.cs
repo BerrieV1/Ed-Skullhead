@@ -8,8 +8,7 @@ namespace Ed_Skullhead.src
         public enum CurrentAnimation
         {
             Idle,
-            Run,
-            Die
+            Run
         }
         public Texture2D texture;
         public Vector2 position;
