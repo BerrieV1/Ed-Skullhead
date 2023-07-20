@@ -133,6 +133,9 @@
 /processorParam:Quality=Best
 /build:collect.wav
 
+#begin dysin4mation.ttf
+/copy:dysin4mation.ttf
+
 #begin jump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

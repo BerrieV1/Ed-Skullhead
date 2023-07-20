@@ -13,6 +13,7 @@ namespace Ed_Skullhead.src
 {
     public class LevelBase : GameScreen
     {
+        public int points = 0;
         public int health = 3;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -44,6 +45,10 @@ namespace Ed_Skullhead.src
         public List<Coin> coins = new List<Coin>();
         #endregion
 
+        #region UI
+        IMGUI ui;
+        #endregion
+
         public bool isGameOver = false;
         private new Game1 Game => (Game1)base.Game;
         public LevelBase(Game1 game) : base(game)
@@ -61,6 +66,14 @@ namespace Ed_Skullhead.src
             LoadCollisions();
             CreateEnemyPaths();
             CreateCoins();
+            CreateUI();
+        }
+        protected virtual void CreateUI()
+        {
+            FontSystem fontSystem = FontSystemFactory.Create(base.Game.GraphicsDevice, 2048, 2048);
+            fontSystem.AddFont(TitleContainer.OpenStream("Content/dysin4mation.ttf"));
+            GuiHelper.Setup(base.Game, fontSystem);
+            ui = new IMGUI();
         }
         protected virtual void CreateCoins()
         {
@@ -129,7 +142,7 @@ namespace Ed_Skullhead.src
                 if (coin.hitbox.Intersects(player.hitbox))
                 {
                     SoundManager.PlaySound("collect");
-                    Game.points++;
+                    points++;
                     coins.Remove(coin);
                     break;
                 }
@@ -143,6 +156,15 @@ namespace Ed_Skullhead.src
 
             #region Collisions
             HandleCollisions(position);
+            #endregion
+
+            #region UI
+            GuiHelper.UpdateSetup(gameTime);
+            ui.UpdateAll(gameTime);
+            Panel.Push().XY = new Vector2(0, 0);
+            Label.Put($"Points: {points}");
+            Panel.Pop();
+            GuiHelper.UpdateCleanup();
             #endregion
         }
         private void HandleCollisions(Vector2 position)
@@ -207,6 +229,12 @@ namespace Ed_Skullhead.src
 
             #region Player
             player.Draw(spriteBatch, gameTime);
+            #endregion
+
+            #region UI
+            spriteBatch.End();
+            spriteBatch.Begin();
+            ui.Draw(gameTime);
             #endregion
 
             spriteBatch.End();
