@@ -1,23 +1,25 @@
-﻿using Ed_Skullhead.src;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Ed_Skullhead.src;
 
-namespace Ed_Skullhead.Entities
+namespace Ed_Skullhead.Collectibles
 {
-    public class Coin
+    public class Collectible
     {
         public Rectangle hitbox;
         public Texture2D texture;
         public Vector2 position;
         public Animation collectibleAnimation;
-        public Coin(Texture2D texture, Rectangle coinRect)
+        public int value;
+        public Collectible(Texture2D texture, Rectangle collectibleRect)
         {
             this.texture = texture;
-            position = new Vector2(coinRect.X, coinRect.Y);
+            position = new Vector2(collectibleRect.X, collectibleRect.Y);
             hitbox = new Rectangle((int)position.X, (int)position.Y, 9, 9);
             collectibleAnimation = new Animation(texture, 9, 9);
+            value = 0;
         }
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             collectibleAnimation.Draw(spriteBatch, position, gameTime, 2f, SpriteEffects.None);
         }

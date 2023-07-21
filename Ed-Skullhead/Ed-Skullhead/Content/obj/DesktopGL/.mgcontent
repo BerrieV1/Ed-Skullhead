@@ -13,6 +13,7 @@
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/8 - Roach_Running (32 x 32).png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/background_level1.wav</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/background_level2.wav</File>
+    <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/bone.png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/cave-tileset.png</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/click.wav</File>
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/coin.png</File>
@@ -32,6 +33,7 @@
     <File>C:/Users/bernd/OneDrive - AP Hogeschool Antwerpen/School 22-23 semester 2/Game Dev/Ed-Skullhead/Ed-Skullhead/Ed-Skullhead/Content/victory.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

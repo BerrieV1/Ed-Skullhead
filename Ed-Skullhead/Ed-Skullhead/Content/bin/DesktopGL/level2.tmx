@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="38">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="41">
  <tileset firstgid="1" name="cave-tileset" tilewidth="16" tileheight="16" tilecount="2178" columns="99">
   <image source="cave-tileset.png" width="1584" height="352"/>
  </tileset>
@@ -145,5 +145,10 @@
   <object id="35" x="186.667" y="294.667"/>
   <object id="36" x="340.667" y="295.333"/>
   <object id="37" x="532" y="169.333"/>
+ </objectgroup>
+ <objectgroup id="7" name="Bones">
+  <object id="38" x="366" y="68.6667"/>
+  <object id="39" x="262.667" y="386.667"/>
+  <object id="40" x="164" y="216.667"/>
  </objectgroup>
 </map>

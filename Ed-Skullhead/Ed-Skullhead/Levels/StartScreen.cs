@@ -24,11 +24,11 @@ namespace Ed_Skullhead.Levels
             GuiHelper.UpdateSetup(gameTime);
             ui.UpdateAll(gameTime);
             Panel.Push().XY = new Vector2(190, 80);
-            Label.Put("Ed Skullhead", 50, Color.Red);
+            Label.Put("Ed Skullhead", 50, Color.Blue);
             Panel.Pop();
 
             Panel.Push().XY = new Vector2(250, 170);
-            if (Button.Put("Start Game").Clicked)
+            if (Button.Put("Start Game", 30, Color.White).Clicked)
             {
                 SoundManager.PlaySound("click");
                 Game.LoadLevel1();
@@ -37,7 +37,7 @@ namespace Ed_Skullhead.Levels
             Panel.Pop();
 
             Panel.Push().XY = new Vector2(255, 240);
-            if (Button.Put(" Level 2 ").Clicked)
+            if (Button.Put(" Level 2 ", 30, Color.White).Clicked)
             {
                 SoundManager.PlaySound("click");
                 Game.LoadLevel2();
@@ -46,7 +46,7 @@ namespace Ed_Skullhead.Levels
             Panel.Pop();
 
             Panel.Push().XY = new Vector2(250, 310);
-            if (Button.Put("   Quit   ").Clicked)
+            if (Button.Put("   Quit   ", 30, Color.White).Clicked)
             {
                 SoundManager.PlaySound("click");
                 Game.Exit();
