@@ -7,14 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Screens;
 using System.Collections.Generic;
+using System.Threading;
 using TiledSharp;
 
 namespace Ed_Skullhead.src
 {
     public class LevelBase : GameScreen
     {
-        public int points = 0;
-        public int health = 3;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
@@ -26,6 +25,10 @@ namespace Ed_Skullhead.src
         public float playerScale = 1.2f;
         public float playerFallSpeed = 3f;
         public float playerJumpSpeed = 1f;
+        public bool isGameOver = false;
+        public bool isDying = false;
+        public int points = 0;
+        public int health = 3;
         #endregion
 
         #region Map
@@ -49,7 +52,6 @@ namespace Ed_Skullhead.src
         IMGUI ui;
         #endregion
 
-        public bool isGameOver = false;
         private new Game1 Game => (Game1)base.Game;
         public LevelBase(Game1 game) : base(game)
         {
@@ -68,14 +70,14 @@ namespace Ed_Skullhead.src
             CreateCoins();
             CreateUI();
         }
-        protected virtual void CreateUI()
+        private void CreateUI()
         {
             FontSystem fontSystem = FontSystemFactory.Create(base.Game.GraphicsDevice, 2048, 2048);
             fontSystem.AddFont(TitleContainer.OpenStream("Content/dysin4mation.ttf"));
             GuiHelper.Setup(base.Game, fontSystem);
             ui = new IMGUI();
         }
-        protected virtual void CreateCoins()
+        private void CreateCoins()
         {
             var coinTexture = Content.Load<Texture2D>("coin");
             foreach (var objects in map.ObjectGroups["Coins"].Objects)
@@ -83,7 +85,7 @@ namespace Ed_Skullhead.src
                 coins.Add(new Coin(coinTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
             }
         }
-        protected virtual void CreateEnemyPaths()
+        private void CreateEnemyPaths()
         {
             enemyPath = new List<Rectangle>();
             foreach (var objects in map.ObjectGroups["EnemyPath"].Objects)
@@ -108,7 +110,7 @@ namespace Ed_Skullhead.src
             int tilesetTilesWide = tileset.Width / tileWidth;
             tileMapManager = new TileMapManager(tileset, map, tileWidth, tileHeight, tilesetTilesWide);
         }
-        protected virtual void LoadCollisions()
+        private void LoadCollisions()
         {
             collisions = new List<Rectangle>();
             foreach (var objects in map.ObjectGroups["Collisions"].Objects)
@@ -132,7 +134,16 @@ namespace Ed_Skullhead.src
                 enemy.Update();
                 isGameOver = enemy.HasHit(player.hitbox);
                 if (isGameOver)
-                    Game.Exit();
+                {
+                    if (!isDying)
+                    {
+                        isDying = true;
+                        SoundManager.StopBackgroundMusic();
+                        SoundManager.PlaySound("death");
+                        Thread.Sleep(2000);
+                        Game.LoadGameOver();
+                    }
+                }
             }
             #endregion
 

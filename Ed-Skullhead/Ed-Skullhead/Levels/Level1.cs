@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Ed_Skullhead.Sound;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using TiledSharp;
@@ -18,6 +19,8 @@ namespace Ed_Skullhead.src
             CreateEnemy(Content.Load<Texture2D>("8 - Roach_Running (32 x 32)"), enemyPath[2], 3f, 1.2f);
             CreateEnemy(Content.Load<Texture2D>("7 - Orchid_Owl_Flying (32 x 32)"), enemyPath[3], 2.5f, 1.2f);
             player = CreatePlayer(new Vector2(startRect.X + 9, startRect.Y - 12), new List<Texture2D>() { Content.Load<Texture2D>("Skeleton Idle"), Content.Load<Texture2D>("Skeleton Walk") }, playerSpeed, playerScale, playerFallSpeed, playerJumpSpeed);
+            SoundManager.Initialize(Content);
+            SoundManager.PlayBackgroundMusic("background_level1");
         }
         public override void LoadTileMap()
         {
@@ -31,6 +34,7 @@ namespace Ed_Skullhead.src
             {
                 var game1 = (Game1)Game;
                 game1.LoadLevel2();
+                SoundManager.StopBackgroundMusic();
             }
         }
     }

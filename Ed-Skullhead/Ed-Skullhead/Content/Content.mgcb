@@ -97,11 +97,17 @@
 /processorParam:TextureFormat=Color
 /build:8 - Roach_Running (32 x 32).png
 
-#begin background.wav
+#begin background_level1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:background.wav
+/build:background_level1.wav
+
+#begin background_level2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:background_level2.wav
 
 #begin cave-tileset.png
 /importer:TextureImporter
@@ -114,6 +120,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:cave-tileset.png
+
+#begin click.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:click.wav
 
 #begin coin.png
 /importer:TextureImporter
@@ -133,6 +145,12 @@
 /processorParam:Quality=Best
 /build:collect.wav
 
+#begin death.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:death.wav
+
 #begin dysin4mation.ttf
 /copy:dysin4mation.ttf
 
@@ -148,6 +166,12 @@
 #begin level2.tmx
 /copy:level2.tmx
 
+#begin pause_menu.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:pause_menu.wav
+
 #begin Skeleton Attack.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -159,6 +183,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Skeleton Attack.png
+
+#begin Skeleton Dead.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Skeleton Dead.png
 
 #begin Skeleton Dead.png
 /importer:TextureImporter
@@ -219,6 +255,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Skeleton Walk.png
+
+#begin start_menu.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:start_menu.wav
 
 #begin Wizard's Manse.otf
 /copy:Wizard's Manse.otf

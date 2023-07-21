@@ -27,9 +27,7 @@ namespace Ed_Skullhead.src
             graphics.PreferredBackBufferHeight = 480;
             graphics.ApplyChanges();
             base.Initialize();
-            LoadLevel1();
-            SoundManager.Initialize(Content);
-            SoundManager.PlaySound("background", true);
+            LoadStartMenu();
         }
         protected override void LoadContent()
         {
@@ -51,9 +49,14 @@ namespace Ed_Skullhead.src
         {
             screenManager.LoadScreen(new Menu(this), new FadeTransition(GraphicsDevice, Color.Black));
         }
+        public void LoadGameOver()
+        {
+            screenManager.LoadScreen(new GameOver(this), new FadeTransition(GraphicsDevice, Color.Black));
+        }
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
         }
+
     }
 }
