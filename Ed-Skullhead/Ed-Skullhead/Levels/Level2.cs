@@ -2,12 +2,14 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.Threading;
 using TiledSharp;
 
 namespace Ed_Skullhead.src
 {
     public class Level2 : LevelBase
     {
+        private bool isEnded = false;
         public Level2(Game1 game) : base(game)
         {
         }
@@ -26,6 +28,22 @@ namespace Ed_Skullhead.src
         {
             map = new TmxMap("Content/level2.tmx");
             base.LoadTileMap();
+        }
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            if (endRect.Intersects(player.hitbox))
+            {
+                if (!isEnded)
+                {
+                    isEnded = true;
+                    var game1 = (Game1)Game;
+                    SoundManager.StopBackgroundMusic();
+                    SoundManager.PlaySound("victory");
+                    Thread.Sleep(5000);
+                    game1.LoadVictory();
+                }
+            }
         }
     }
 }

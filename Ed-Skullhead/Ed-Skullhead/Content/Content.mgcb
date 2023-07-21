@@ -154,6 +154,18 @@
 #begin dysin4mation.ttf
 /copy:dysin4mation.ttf
 
+#begin end.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:end.wav
+
+#begin game_over_menu.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:game_over_menu.wav
+
 #begin jump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -183,18 +195,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Skeleton Attack.png
-
-#begin Skeleton Dead.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Skeleton Dead.png
 
 #begin Skeleton Dead.png
 /importer:TextureImporter
@@ -261,6 +261,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:start_menu.wav
+
+#begin victory.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:victory.wav
 
 #begin Wizard's Manse.otf
 /copy:Wizard's Manse.otf

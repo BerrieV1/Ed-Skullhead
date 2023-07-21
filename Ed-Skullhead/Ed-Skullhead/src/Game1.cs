@@ -47,16 +47,19 @@ namespace Ed_Skullhead.src
         }
         public void LoadStartMenu()
         {
-            screenManager.LoadScreen(new Menu(this), new FadeTransition(GraphicsDevice, Color.Black));
+            screenManager.LoadScreen(new StartScreen(this), new FadeTransition(GraphicsDevice, Color.Black));
         }
         public void LoadGameOver()
         {
-            screenManager.LoadScreen(new GameOver(this), new FadeTransition(GraphicsDevice, Color.Black));
+            screenManager.LoadScreen(new GameOverScreen(this), new FadeTransition(GraphicsDevice, Color.Black));
+        }
+        public void LoadVictory()
+        {
+            screenManager.LoadScreen(new VictoryScreen(this), new FadeTransition(GraphicsDevice, Color.Black));
         }
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
         }
-
     }
 }
