@@ -2,6 +2,7 @@
 using Ed_Skullhead.Collectibles;
 using Ed_Skullhead.Entities;
 using Ed_Skullhead.Sound;
+using Ed_Skullhead.Throwable;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -28,8 +29,6 @@ namespace Ed_Skullhead.src
         public float playerJumpSpeed = 1f;
         public bool isGameOver = false;
         public bool isDying = false;
-        public int points = 0;
-        public int bones = 0;
         #endregion
 
         #region Map
@@ -46,11 +45,15 @@ namespace Ed_Skullhead.src
         #endregion
 
         #region Coins
+        private Texture2D coinTexture;
         public List<Coin> coins = new List<Coin>();
         #endregion
 
         #region Bones
+        private Texture2D boneTexture;
         public List<Bone> boneList = new List<Bone>();
+        public List<ThrowBone> throwBones = new List<ThrowBone>();
+        private int timeBetweenThrows;
         #endregion
 
         #region UI
@@ -85,7 +88,7 @@ namespace Ed_Skullhead.src
         }
         private void CreateCoins()
         {
-            var coinTexture = Content.Load<Texture2D>("coin");
+            coinTexture = Content.Load<Texture2D>("coin");
             foreach (var objects in map.ObjectGroups["Coins"].Objects)
             {
                 coins.Add(new Coin(coinTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
@@ -93,7 +96,7 @@ namespace Ed_Skullhead.src
         }
         private void CreateBones()
         {
-            var boneTexture = Content.Load<Texture2D>("bone");
+            boneTexture = Content.Load<Texture2D>("bone");
             foreach (var objects in map.ObjectGroups["Bones"].Objects)
             {
                 boneList.Add(new Bone(boneTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
@@ -167,7 +170,7 @@ namespace Ed_Skullhead.src
                 if (coin.hitbox.Intersects(player.hitbox))
                 {
                     SoundManager.PlaySound("collect");
-                    points += coin.value;
+                    Game.points += coin.value;
                     coins.Remove(coin);
                     break;
                 }
@@ -180,7 +183,7 @@ namespace Ed_Skullhead.src
                 if (bone.hitbox.Intersects(player.hitbox))
                 {
                     SoundManager.PlaySound("collect");
-                    bones += bone.value;
+                    Game.bones += bone.value;
                     boneList.Remove(bone);
                     break;
                 }
@@ -189,7 +192,55 @@ namespace Ed_Skullhead.src
 
             #region Player
             Vector2 position = player.position;
+            if (player.isThrowing)
+            {
+                if (timeBetweenThrows > 7 && Game.bones > 0)
+                {
+                    var temp_hitbox = new Rectangle((int)player.position.X, (int)player.position.Y + 10, boneTexture.Width, boneTexture.Height);
+                    if (player.spriteEffect == SpriteEffects.None)
+                    {
+                        throwBones.Add(new ThrowBone(boneTexture, 4f, temp_hitbox, 0.3f));
+                    }
+                    if (player.spriteEffect == SpriteEffects.FlipHorizontally)
+                    {
+                        throwBones.Add(new ThrowBone(boneTexture, -4f, temp_hitbox, 0.3f));
+                    }
+                    SoundManager.PlaySound("throw");
+                    timeBetweenThrows = 0;
+                    Game.bones--;
+                }
+                else
+                {
+                    timeBetweenThrows++;
+                }
+            }
             player.Update();
+            #endregion
+
+            #region ThrowBones
+            foreach (var throwBone in throwBones.ToArray())
+            {
+                throwBone.Update();
+                foreach (var rect in collisions)
+                {
+                    if (rect.Intersects(throwBone.scaledHitbox))
+                    {
+                        throwBones.Remove(throwBone);
+                        break;
+                    }
+                }
+                foreach (var enemy in enemies.ToArray())
+                {
+                    if (throwBone.scaledHitbox.Intersects(enemy.hitbox))
+                    {
+                        SoundManager.PlaySound("enemy_death");
+                        enemies.Remove(enemy);
+                        throwBones.Remove(throwBone);
+                        Game.points += 5;
+                        break;
+                    }
+                }
+            }
             #endregion
 
             #region Collisions
@@ -200,10 +251,10 @@ namespace Ed_Skullhead.src
             GuiHelper.UpdateSetup(gameTime);
             ui.UpdateAll(gameTime);
             Panel.Push().XY = new Vector2(0, 0);
-            Label.Put($"Points: {points}");
+            Label.Put($"Points: {Game.points}");
             Panel.Pop();
             Panel.Push().XY = new Vector2(520, 0);
-            Label.Put($"Bones: {bones}");
+            Label.Put($"Bones: {Game.bones}");
             Panel.Pop();
             GuiHelper.UpdateCleanup();
             #endregion
@@ -272,6 +323,13 @@ namespace Ed_Skullhead.src
             foreach (var bone in boneList)
             {
                 bone.Draw(spriteBatch, gameTime);
+            }
+            #endregion
+
+            #region ThrowBones
+            foreach (var throwBone in throwBones.ToArray())
+            {
+                throwBone.Draw(spriteBatch);
             }
             #endregion
 

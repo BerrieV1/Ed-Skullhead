@@ -25,11 +25,15 @@ namespace Ed_Skullhead.Levels
         {
             GuiHelper.UpdateSetup(gameTime);
             ui.UpdateAll(gameTime);
-            Panel.Push().XY = new Vector2(220, 80);
+            Panel.Push().XY = new Vector2(225, 80);
             Label.Put("You Won!", 50, Color.LimeGreen);
             Panel.Pop();
 
-            Panel.Push().XY = new Vector2(230, 170);
+            Panel.Push().XY = new Vector2(220, 150);
+            Label.Put($"Total points: {Game.points}", 30);
+            Panel.Pop();
+
+            Panel.Push().XY = new Vector2(230, 220);
             if (Button.Put("Restart Game").Clicked)
             {
                 SoundManager.PlaySound("click");
@@ -38,7 +42,7 @@ namespace Ed_Skullhead.Levels
             }
             Panel.Pop();
 
-            Panel.Push().XY = new Vector2(280, 240);
+            Panel.Push().XY = new Vector2(280, 290);
             if (Button.Put("Quit").Clicked)
             {
                 SoundManager.PlaySound("click");

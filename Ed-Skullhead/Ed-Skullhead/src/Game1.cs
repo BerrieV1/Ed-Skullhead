@@ -12,6 +12,8 @@ namespace Ed_Skullhead.src
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private ScreenManager screenManager;
+        public int points = 0;
+        public int bones = 0;
 
         public Game1()
         {

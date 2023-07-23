@@ -134,7 +134,7 @@
   <object id="25" x="4.167" y="247.334" width="181.394" height="19.6364"/>
  </objectgroup>
  <objectgroup id="7" name="Coins">
-  <object id="26" x="182.667" y="362"/>
+  <object id="26" x="272.667" y="393"/>
   <object id="27" x="615.818" y="362"/>
   <object id="28" x="166.667" y="267.458"/>
   <object id="29" x="106.75" y="187.417"/>
@@ -143,8 +143,8 @@
   <object id="32" x="16" y="89.1667"/>
  </objectgroup>
  <objectgroup id="8" name="Bones">
-  <object id="33" x="88" y="394"/>
-  <object id="34" x="551" y="312.5"/>
-  <object id="35" x="153.5" y="91.5"/>
+  <object id="33" x="124" y="361.333"/>
+  <object id="34" x="351.5" y="269.75"/>
+  <object id="35" x="128.5" y="90"/>
  </objectgroup>
 </map>

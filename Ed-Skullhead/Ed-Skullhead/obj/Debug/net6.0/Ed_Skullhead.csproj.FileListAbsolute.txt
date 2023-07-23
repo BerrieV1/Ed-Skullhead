@@ -66,3 +66,5 @@ C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game D
 C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\game_over_menu.xnb
 C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\victory.xnb
 C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\bone.xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\enemy_death.xnb
+C:\Users\bernd\OneDrive - AP Hogeschool Antwerpen\School 22-23 semester 2\Game Dev\Ed-Skullhead\Ed-Skullhead\Ed-Skullhead\bin\Debug\net6.0\Content\throw.xnb

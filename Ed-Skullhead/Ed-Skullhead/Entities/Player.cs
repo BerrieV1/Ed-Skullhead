@@ -20,6 +20,7 @@ namespace Ed_Skullhead.src
         public bool isFalling = true;
         public bool isJumping;
         public bool isRunning = false;
+        public bool isThrowing = false;
         public float startY;
 
         public Animation[] animation;
@@ -69,6 +70,8 @@ namespace Ed_Skullhead.src
             Move(Keyboard.GetState());
             if (isFalling)
                 velocity.Y += fallSpeed;
+
+            isThrowing = Keyboard.GetState().IsKeyDown(Keys.E);
 
             startY = position.Y;
             Jump(Keyboard.GetState());

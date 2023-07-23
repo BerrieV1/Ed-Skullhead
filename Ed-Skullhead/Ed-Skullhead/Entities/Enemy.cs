@@ -16,7 +16,7 @@ namespace Ed_Skullhead.Entities
             this.path = path;
             enemyAnimation = new Animation(spritesheet, 32, 32);
             position = new Vector2(path.X, path.Y);
-            hitbox = new Rectangle((int)position.X, (int)position.Y, 8, 8);
+            hitbox = new Rectangle((int)position.X, (int)position.Y, 16, 16);
             this.speed = speed;
             this.scale = scale;
         }
