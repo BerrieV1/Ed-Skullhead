@@ -1,4 +1,5 @@
-﻿using Ed_Skullhead.Sound;
+﻿using Ed_Skullhead.Interfaces;
+using Ed_Skullhead.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Ed_Skullhead.src
 {
-    public class Player : Entity
+    public class Player : Entity, IMoveBehaviour, IJumpBehaviour, IThrowBehaviour
     {
         public Vector2 velocity;
         public Rectangle fallRect;
@@ -68,13 +69,8 @@ namespace Ed_Skullhead.src
                 currentAnimation = CurrentAnimation.Idle;
 
             Move(Keyboard.GetState());
-            if (isFalling)
-                velocity.Y += fallSpeed;
-
-            isThrowing = Keyboard.GetState().IsKeyDown(Keys.E);
-
-            startY = position.Y;
             Jump(Keyboard.GetState());
+            Throw();
 
             hitbox.X = (int)position.X;
             hitbox.Y = (int)position.Y;
@@ -83,7 +79,7 @@ namespace Ed_Skullhead.src
             jumpRect.X = (int)position.X;
             jumpRect.Y = (int)velocity.Y;
         }
-        private void Move(KeyboardState state)
+        public void Move(KeyboardState state)
         {
             if (state.IsKeyDown(Keys.Q))
             {
@@ -97,9 +93,12 @@ namespace Ed_Skullhead.src
                 isRunning = true;
                 spriteEffect = SpriteEffects.None;
             }
+            if (isFalling)
+                velocity.Y += fallSpeed;
         }
-        private void Jump(KeyboardState state)
+        public void Jump(KeyboardState state)
         {
+            startY = position.Y;
             if (isJumping)
             {
                 velocity.Y += jumpSpeed;
@@ -120,6 +119,10 @@ namespace Ed_Skullhead.src
                     jumpSpeed = -10;
                 }
             }
+        }
+        public void Throw()
+        {
+            isThrowing = Keyboard.GetState().IsKeyDown(Keys.E);
         }
     }
 }

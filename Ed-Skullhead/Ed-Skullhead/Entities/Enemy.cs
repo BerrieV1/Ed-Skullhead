@@ -1,10 +1,11 @@
-﻿using Ed_Skullhead.src;
+﻿using Ed_Skullhead.Interfaces;
+using Ed_Skullhead.src;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Ed_Skullhead.Entities
 {
-    public class Enemy : Entity
+    public class Enemy : Entity, IHitBehaviour
     {
         private Animation enemyAnimation;
         private Rectangle path;
@@ -27,7 +28,7 @@ namespace Ed_Skullhead.Entities
             else
                 enemyAnimation.Draw(spriteBatch, position, gameTime, scale, SpriteEffects.FlipHorizontally);
         }
-        public bool HasHit(Rectangle playerRect)
+        public bool Hit(Rectangle playerRect)
         {
             return hitbox.Intersects(playerRect);
         }

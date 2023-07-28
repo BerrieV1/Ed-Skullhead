@@ -1,6 +1,8 @@
 ﻿using Apos.Gui;
 using Ed_Skullhead.Collectibles;
 using Ed_Skullhead.Entities;
+using Ed_Skullhead.Factories;
+using Ed_Skullhead.Factory;
 using Ed_Skullhead.Sound;
 using Ed_Skullhead.Throwable;
 using FontStashSharp;
@@ -9,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Screens;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using TiledSharp;
 
@@ -60,6 +63,11 @@ namespace Ed_Skullhead.src
         IMGUI ui;
         #endregion
 
+        #region Factories
+        private EntityFactory entityFactory;
+        private CollectibleFactory collectibleFactory;
+        #endregion
+
         private new Game1 Game => (Game1)base.Game;
         public LevelBase(Game1 game) : base(game)
         {
@@ -72,12 +80,18 @@ namespace Ed_Skullhead.src
         public override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            InitializeFactories();
             LoadTileMap();
             LoadCollisions();
             CreateEnemyPaths();
             CreateCoins();
             CreateBones();
             CreateUI();
+        }
+        private void InitializeFactories()
+        {
+            entityFactory = new EntityFactory();
+            collectibleFactory = new CollectibleFactory();
         }
         private void CreateUI()
         {
@@ -89,9 +103,9 @@ namespace Ed_Skullhead.src
         private void CreateCoins()
         {
             coinTexture = Content.Load<Texture2D>("coin");
-            foreach (var objects in map.ObjectGroups["Coins"].Objects)
+            foreach(var objects in map.ObjectGroups["Coins"].Objects)
             {
-                coins.Add(new Coin(coinTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
+                coins.Add(collectibleFactory.CreateCoin(coinTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
             }
         }
         private void CreateBones()
@@ -99,7 +113,7 @@ namespace Ed_Skullhead.src
             boneTexture = Content.Load<Texture2D>("bone");
             foreach (var objects in map.ObjectGroups["Bones"].Objects)
             {
-                boneList.Add(new Bone(boneTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
+                boneList.Add(collectibleFactory.CreateBone(boneTexture, new Rectangle((int)objects.X, (int)objects.Y, (int)objects.Width, (int)objects.Height)));
             }
         }
         private void CreateEnemyPaths()
@@ -112,12 +126,12 @@ namespace Ed_Skullhead.src
         }
         public Enemy CreateEnemy(Texture2D enemyTexture, Rectangle path, float speed, float scale)
         {
-            enemies.Add(new Enemy(enemyTexture, path, speed, scale));
-            return new Enemy(enemyTexture, path, speed, scale);
+            enemies.Add(entityFactory.CreateEnemy(enemyTexture, path, speed, scale));
+            return enemies.Last();
         }
-        public virtual Player CreatePlayer(Vector2 startPosition, List<Texture2D> sprites, float playerSpeed, float playerScale, float playerFallSpeed, float playerJumpSpeed)
+        public Player CreatePlayer(Vector2 startPosition, List<Texture2D> sprites, float playerSpeed, float playerScale, float playerFallSpeed, float playerJumpSpeed)
         {
-            return new Player(startPosition, sprites, playerSpeed, playerScale, playerFallSpeed, playerJumpSpeed);
+            return entityFactory.CreatePlayer(startPosition, sprites, playerSpeed, playerScale, playerFallSpeed, playerJumpSpeed);
         }
         public virtual void LoadTileMap()
         {
@@ -149,7 +163,7 @@ namespace Ed_Skullhead.src
             foreach (var enemy in enemies)
             {
                 enemy.Update();
-                isGameOver = enemy.HasHit(player.hitbox);
+                isGameOver = enemy.Hit(player.hitbox);
                 if (isGameOver)
                 {
                     if (!isDying)
