@@ -2,8 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.Screens.Transitions;
-using Ed_Skullhead.Sound;
-using Ed_Skullhead.Levels;
+using Ed_Skullhead.Screens;
 
 namespace Ed_Skullhead.src
 {

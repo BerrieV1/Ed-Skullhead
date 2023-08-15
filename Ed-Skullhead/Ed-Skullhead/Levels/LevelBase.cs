@@ -275,11 +275,7 @@ namespace Ed_Skullhead.src
         }
         private void HandleCollisions(Vector2 position)
         {
-            HandleCollisionsXAxis(position);
-            HandleCollisionsYAxis(position);
-        }
-        private void HandleCollisionsXAxis(Vector2 position)
-        {
+            #region X-Axis
             foreach (var rect in collisions)
             {
                 if (rect.Intersects(player.hitbox))
@@ -289,9 +285,9 @@ namespace Ed_Skullhead.src
                     break;
                 }
             }
-        }
-        private void HandleCollisionsYAxis(Vector2 position)
-        {
+            #endregion
+            
+            #region Y-Axis
             foreach (var rect in collisions)
             {
                 if (!player.isJumping)
@@ -309,6 +305,7 @@ namespace Ed_Skullhead.src
                     break;
                 }
             }
+            #endregion
         }
         public override void Draw(GameTime gameTime)
         {

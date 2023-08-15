@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
 
-namespace Ed_Skullhead.Levels
+namespace Ed_Skullhead.Screens
 {
     public class Screen : GameScreen
     {

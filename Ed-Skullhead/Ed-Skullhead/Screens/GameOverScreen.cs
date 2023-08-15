@@ -1,39 +1,32 @@
 ﻿using Apos.Gui;
 using Ed_Skullhead.Sound;
 using Ed_Skullhead.src;
-using FontStashSharp;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using MonoGame.Extended.Screens;
 
-namespace Ed_Skullhead.Levels
+namespace Ed_Skullhead.Screens
 {
-    public class VictoryScreen : Screen
+    public class GameOverScreen : Screen
     {
         private new Game1 Game => (Game1)base.Game;
         IMGUI ui;
-        public VictoryScreen(Game game) : base(game)
+        public GameOverScreen(Game game) : base(game)
         {
         }
         public override void LoadContent()
         {
             base.LoadContent();
-            SoundManager.PlayBackgroundMusic("end");
+            SoundManager.PlayBackgroundMusic("game_over_menu");
             ui = new IMGUI();
         }
         public override void Update(GameTime gameTime)
         {
             GuiHelper.UpdateSetup(gameTime);
             ui.UpdateAll(gameTime);
-            Panel.Push().XY = new Vector2(225, 80);
-            Label.Put("You Won!", 50, Color.LimeGreen);
+            Panel.Push().XY = new Vector2(220, 80);
+            Label.Put("You Died!", 50, Color.Red);
             Panel.Pop();
 
-            Panel.Push().XY = new Vector2(220, 150);
-            Label.Put($"Total points: {Game.points}", 30);
-            Panel.Pop();
-
-            Panel.Push().XY = new Vector2(230, 220);
+            Panel.Push().XY = new Vector2(230, 170);
             if (Button.Put("Restart Game").Clicked)
             {
                 SoundManager.PlaySound("click");
@@ -42,7 +35,7 @@ namespace Ed_Skullhead.Levels
             }
             Panel.Pop();
 
-            Panel.Push().XY = new Vector2(280, 290);
+            Panel.Push().XY = new Vector2(280, 240);
             if (Button.Put("Quit").Clicked)
             {
                 SoundManager.PlaySound("click");

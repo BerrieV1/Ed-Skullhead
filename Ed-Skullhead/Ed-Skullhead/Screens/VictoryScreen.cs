@@ -1,34 +1,40 @@
 ﻿using Apos.Gui;
 using Ed_Skullhead.Sound;
 using Ed_Skullhead.src;
-using Microsoft.Xna.Framework;
+using FontStashSharp;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended.Screens;
 
-namespace Ed_Skullhead.Levels
+namespace Ed_Skullhead.Screens
 {
-    public class StartScreen : Screen
+    public class VictoryScreen : Screen
     {
         private new Game1 Game => (Game1)base.Game;
         IMGUI ui;
-        public StartScreen(Game game) : base(game)
+        public VictoryScreen(Game game) : base(game)
         {
         }
         public override void LoadContent()
         {
             base.LoadContent();
-            SoundManager.PlayBackgroundMusic("start_menu");
+            SoundManager.PlayBackgroundMusic("end");
             ui = new IMGUI();
         }
         public override void Update(GameTime gameTime)
         {
             GuiHelper.UpdateSetup(gameTime);
             ui.UpdateAll(gameTime);
-            Panel.Push().XY = new Vector2(190, 80);
-            Label.Put("Ed Skullhead", 50, Color.Blue);
+            Panel.Push().XY = new Vector2(225, 80);
+            Label.Put("You Won!", 50, Color.LimeGreen);
             Panel.Pop();
 
-            Panel.Push().XY = new Vector2(250, 170);
-            if (Button.Put("Start Game", 30, Color.White).Clicked)
+            Panel.Push().XY = new Vector2(220, 150);
+            Label.Put($"Total points: {Game.points}", 30);
+            Panel.Pop();
+
+            Panel.Push().XY = new Vector2(230, 220);
+            if (Button.Put("Restart Game").Clicked)
             {
                 SoundManager.PlaySound("click");
                 Game.LoadLevel1();
@@ -36,23 +42,13 @@ namespace Ed_Skullhead.Levels
             }
             Panel.Pop();
 
-            Panel.Push().XY = new Vector2(255, 240);
-            if (Button.Put(" Level 2 ", 30, Color.White).Clicked)
-            {
-                SoundManager.PlaySound("click");
-                Game.LoadLevel2();
-                SoundManager.StopBackgroundMusic();
-            }
-            Panel.Pop();
-
-            Panel.Push().XY = new Vector2(250, 310);
-            if (Button.Put("   Quit   ", 30, Color.White).Clicked)
+            Panel.Push().XY = new Vector2(280, 290);
+            if (Button.Put("Quit").Clicked)
             {
                 SoundManager.PlaySound("click");
                 Game.Exit();
             }
             Panel.Pop();
-            GuiHelper.UpdateCleanup();
         }
         public override void Draw(GameTime gameTime)
         {
