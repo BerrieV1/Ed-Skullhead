@@ -172,6 +172,8 @@ namespace Ed_Skullhead.src
                         SoundManager.StopBackgroundMusic();
                         SoundManager.PlaySound("death");
                         Thread.Sleep(2000);
+                        Game.points = 0;
+                        Game.bones = 0;
                         Game.LoadGameOver();
                     }
                 }
